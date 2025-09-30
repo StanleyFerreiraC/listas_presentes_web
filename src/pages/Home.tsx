@@ -19,7 +19,7 @@ function Home() {
             receba exatamente o que deseja em suas ocasioes especiais.
           </p>
 
-          <div className="mt-4 flex justify-center gap-4 sm:mt-6">
+          <div className="mt-4 flex justify-center gap-4 sm:mt-8">
             <Button text="Criar minha lista" tipo={1} />
             <Button text="Acessar minha lista" tipo={2} href="/login"/>
           </div>
