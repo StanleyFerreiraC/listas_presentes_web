@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type ButtonProps = {
   text: string;
   href?: string;
@@ -11,9 +13,9 @@ function Button({ text, href = "#", tipo }: ButtonProps) {
   const tipo2 = "inline-block rounded border border-gray-200 px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900"
   
   return (
-    <a className={`${tipo === 1 ? tipo1 : tipo2}`} href={href}>
+    <Link to={href} className={`${tipo === 1 ? tipo1 : tipo2}`}>
       {text}
-    </a>
+    </Link>
   );
 }
 

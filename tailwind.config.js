@@ -9,7 +9,16 @@ export default {
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
       },
-      colors: { aria: '#F5F5F5', primary: '#ffffff', secundare: '#ffffff', pretty: '#6A6180' },
+      colors: {
+        primary: '#eff6ff',
+        secondary: {
+          '100': '#f3f4f6',
+          '200': '#e5e7eb',
+          '300': '#d1d5db',
+          '400': '#9ca3af',
+          '500': '#6b7280',
+        }
+      },
     },
   },
   plugins: [],

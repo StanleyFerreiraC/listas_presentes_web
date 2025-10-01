@@ -10,7 +10,7 @@ function Home() {
         <div className="mx-auto max-w-prose text-center">
           <h1 className="text-4xl font-bold text-secundare-200 sm:text-5xl">
             Crie sua lista de presentes de forma
-            <strong className="text-primary-600"> facil e rapida</strong>
+            <strong className="text-primary"> facil e rapida</strong>
           </h1>
 
           <p className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">
