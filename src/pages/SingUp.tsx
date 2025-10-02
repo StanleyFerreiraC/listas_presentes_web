@@ -1,7 +1,7 @@
 import Button from "../components/button";
+import Input from "../components/Input";
 
 function Login() {
-  
   return (
     <section className="bg-gray-1 py-20 dark:bg-dark lg:py-[120px]">
       <div className="container mx-auto">
@@ -9,38 +9,20 @@ function Login() {
           <div className="w-full px-4">
             <div className="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white shadow-md shadow-gray-400 px-10 py-16 text-center dark:bg-dark-2 sm:px-12 md:px-[60px]">
               <div className="mb-10 text-center md:mb-16">
-                <h1 className="text-4xl font-bold text-secundare-200 sm:text-5xl">Crie sua conta</h1>
-                <p className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">Preencha seus dados</p>
+                <h1 className="text-4xl font-bold text-secundare-200 sm:text-5xl">
+                  Crie sua conta
+                </h1>
+                <p className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">
+                  Preencha seus dados
+                </p>
               </div>
               <form className="space-y-4">
                 <div>
-                  <label htmlFor="Name" className="relative ">
-                    <input
-                      type="name"
-                      id="Name"
-                      placeholder=""
-                      className="peer mt-0.5 p-3 w-full rounded border-gray-400 shadow-sm sm:text-sm"
-                    />
-
-                    <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
-                      *Nome completo
-                    </span>
-                  </label>
+                  <Input type="text" placeholder="" text="Nome completo" />
                 </div>
 
                 <div>
-                  <label htmlFor="Email" className="relative">
-                    <input
-                      type="email"
-                      id="Email"
-                      placeholder=""
-                      className="peer mt-0.5 p-3 w-full rounded border-gray-500 shadow-sm sm:text-sm"
-                    />
-
-                    <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
-                      *Email
-                    </span>
-                  </label>
+                  <Input type="email" placeholder="" text="Email" />
                 </div>
 
                 <div>
@@ -59,18 +41,7 @@ function Login() {
                 </div>
 
                 <div>
-                  <label htmlFor="Password" className="relative">
-                    <input
-                      type="passord"
-                      id="Password"
-                      placeholder=""
-                      className="peer mt-0.5 p-3 w-full rounded border-gray-500 shadow-sm sm:text-sm"
-                    />
-
-                    <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
-                      *Senha
-                    </span>
-                  </label>
+                  <Input type="password" placeholder="" text="Senha" />
                 </div>
 
                 <div className="mb-10">
@@ -82,10 +53,9 @@ function Login() {
                 </div>
               </form>
 
-          <div className="mt-4 flex justify-center gap-4 sm:mt-8">
-            <Button text="Criar Conta" tipo={1} href=""/>
-          </div>
-
+              <div className="mt-4 flex justify-center gap-4 sm:mt-8">
+                <Button text="Criar Conta" tipo={1} href="" />
+              </div>
             </div>
           </div>
         </div>

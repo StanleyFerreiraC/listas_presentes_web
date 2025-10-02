@@ -1,21 +1,23 @@
-import { Link } from "react-router-dom";
-
-type ButtonProps = {
+type InputProps = {
   text: string;
-  href?: string;
-  tipo: 1 | 2;
+  placeholder: string;
+  type: string;
 };
 
-function Input({ text, href = "#", tipo }: ButtonProps) {
-
-  const tipo1 = "inline-block rounded border border-indigo-600 bg-indigo-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-indigo-700";
-
-  const tipo2 = "inline-block rounded border border-gray-200 px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900"
-  
+function Input({ type, placeholder = "", text }: InputProps) {
   return (
-    <Link to={href} className={`${tipo === 1 ? tipo1 : tipo2}`}>
-      {text}
-    </Link>
+    <label htmlFor={type} className="relative ">
+      <input
+        type={type}
+        id={type}
+        placeholder={placeholder}
+        className="peer mt-0.5 p-3 w-full rounded border-gray-400 shadow-sm sm:text-sm"
+      />
+
+      <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
+        {text}
+      </span>
+    </label>
   );
 }
 
