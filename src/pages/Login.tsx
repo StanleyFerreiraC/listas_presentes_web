@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
+
 function Login() {
-  
   return (
     <section className="bg-gray-1 py-20 dark:bg-dark lg:py-[120px]">
       <div className="container mx-auto">
@@ -122,9 +123,7 @@ function Login() {
               </a>
               <p className="text-base text-body-color dark:text-dark-6">
                 <span className="pr-0.5">Not a member yet?</span>
-                <a href="/#" className="text-primary hover:underline">
-                  Sign Up
-                </a>
+                <Link to="/SingUp">"Sign Up"</Link>
               </p>
             </div>
           </div>
