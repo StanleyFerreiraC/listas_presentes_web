@@ -1,28 +1,55 @@
-import Button from "../components/button";
+import Button from "../components/Button.tsx";
 
 function Home() {
-
-
   return (
-    <section className="bg-white lg:grid lg:h-screen lg:place-content-center">
-      <div className="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
-        <div className="mx-auto max-w-prose text-center">
-          <h1 className="text-4xl font-bold text-secundare-200 sm:text-5xl">
-            Crie sua lista de presentes de forma
-            <strong className="text-primary"> facil e rapida</strong>
-          </h1>
-          <p className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">
-            Crie sua lista de presentes online e compartilhe com amigos e
-            familiares. Facilite a escolha do presente ideal e garanta que voce
-            receba exatamente o que deseja em suas ocasioes especiais.
-          </p>
-          <div className="mt-4 flex justify-center gap-4 sm:mt-8">
-            <Button text="Criar minha lista" tipo={1} />
-            <Button text="Acessar minha lista" tipo={2} href="/login"/>
+    <main>
+      <section className="w-full bg-pink-100">
+        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:py-24 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 lg:items-center lg:justify-between">
+            <div className="max-w-xl text-center lg:text-left">
+              <h1 className="text-4xl font-extrabold text-indigo-900 sm:text-5xl">
+                Crie e gerencie sua lista de presentes de forma prática e segura
+              </h1>
+              <p className="mt-4 max-w-lg mx-auto lg:mx-0 sm:text-lg text-gray-800">
+                Tenha tudo em um só lugar, com fácil acesso para seus convidados
+                e métodos de pagamento personalizados para tornar a experiência
+                ainda melhor.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
+                <Button text="Ver exemplo" href="#" style={1} />
+              </div>
+            </div>
+            <div className="mt-12 lg:mt-0">
+              <img
+                src="img/presentes_v2.png"
+                alt="Pricing Illustration"
+                className="w-full max-w-lg mx-auto"
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:py-24 lg:px-8">
+          <h2 className="text-2xl font-bold text-center text-secundary-100 sm:text-3xl mb-12">
+            Serviços
+          </h2>
+          <p className="mt-4 max-w-lg mx-auto lg:mx-0 sm:text-lg text-textHome">
+            Transforme seus momentos especiais em experiências inesquecíveis.
+          </p>
+          <p className="mt-4 max-w-lg mx-auto lg:mx-0 sm:text-lg text-textHome">
+            Nossa plataforma foi criada para simplificar a organização dos seus
+            eventos, seja o casamento dos sonhos, o chá de casa nova ou a
+            chegada do seu bebê. Com ferramentas práticas e personalizadas,
+            ajudamos você a criar e gerenciar listas de presentes, controlar
+            convidados e facilitar pagamentos, garantindo que seus convidados
+            tenham uma experiência simples, segura e cheia de carinho.
+          </p>
+        </div>
+      </section>
+
+    </main>
   );
 }
 

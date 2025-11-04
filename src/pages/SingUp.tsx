@@ -1,7 +1,6 @@
-import Button from "../components/button";
+import Button from "../components/Button";
 
 function Login() {
-  
   return (
     <section className="bg-gray-1 py-20 dark:bg-dark lg:py-[120px]">
       <div className="container mx-auto">
@@ -9,8 +8,12 @@ function Login() {
           <div className="w-full px-4">
             <div className="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white shadow-md shadow-gray-400 px-10 py-16 text-center dark:bg-dark-2 sm:px-12 md:px-[60px]">
               <div className="mb-10 text-center md:mb-16">
-                <h1 className="text-4xl font-bold text-secundare-200 sm:text-5xl">Crie sua conta</h1>
-                <p className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">Preencha seus dados</p>
+                <h1 className="text-4xl font-bold text-secundare-200 sm:text-5xl">
+                  Crie sua conta
+                </h1>
+                <p className="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">
+                  Preencha seus dados
+                </p>
               </div>
               <form className="space-y-4">
                 <div>
@@ -82,10 +85,9 @@ function Login() {
                 </div>
               </form>
 
-          <div className="mt-4 flex justify-center gap-4 sm:mt-8">
-            <Button text="Criar Conta" tipo={1} href=""/>
-          </div>
-
+              <div className="mt-4 flex justify-center gap-4 sm:mt-8">
+                <Button text="Criar Conta" style={1} href="" />
+              </div>
             </div>
           </div>
         </div>

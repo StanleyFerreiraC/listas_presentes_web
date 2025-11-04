@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 type ButtonProps = {
   text: string;
   href?: string;
-  tipo: 1 | 2;
+  style: 1 | 2;
 };
 
-function Button({ text, href = "#", tipo }: ButtonProps) {
+function Button({ text, href = "#", style = 1 }: ButtonProps) {
 
-  const tipo1 = "inline-block rounded border border-indigo-600 bg-indigo-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-indigo-700";
+  const style1 = "block w-full rounded bg-blue-500 px-12 py-3 text-sm font-medium text-white shadow hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-700 sm:w-auto";
 
-  const tipo2 = "inline-block rounded border border-gray-200 px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900"
+  const style2 = "inline-block rounded border border-gray-200 px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900"
   
   return (
-    <Link to={href} className={`${tipo === 1 ? tipo1 : tipo2}`}>
+    <Link to={href} className={`${style === 1 ? style1 : style2}`}>
       {text}
     </Link>
   );
