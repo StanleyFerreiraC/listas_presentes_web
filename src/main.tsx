@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SingUp from "./pages/SingUp";
 import Layout from "./components/Layout";
+import Dashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter(
   [
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
         { path: "/", element: <Home /> },
         { path: "/login", element: <Login /> },
         { path: "/SingUp", element: <SingUp /> },
+        { path: "/dashboard", element: <Dashboard /> },
       ],
     },
   ],

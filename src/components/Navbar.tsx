@@ -20,13 +20,18 @@ function classNames(...classes: (string | boolean | undefined)[]): string {
 export default function Navbar() {
   const location = useLocation();
   const isLoginPage = location.pathname === "/login";
+  const isAuthenticated = location.pathname === "/dashboard";
 
   return (
     <Disclosure
       as="nav"
       className={classNames(
         "relative after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10",
-        isLoginPage ? "bg-secundary-100" : "bg-primary-100"
+        isLoginPage
+          ? "bg-secundary-100"
+          : isAuthenticated
+          ? "bg-primary-300 shadow-sm"
+          : "bg-primary-100"
       )}
     >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-3">
@@ -76,25 +81,27 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div
-            className={classNames(
-              "absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ",
-              isLoginPage ? "hidden" : ""
-            )}
-          >
-            <Link
-              to="/login"
-              className="rounded-3xl px-6 py-3 text-sm font-medium text-secundary-300"
+          {!isAuthenticated && (
+            <div
+              className={classNames(
+                "absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ",
+                isLoginPage ? "hidden" : ""
+              )}
             >
-              Entrar
-            </Link>
-            <Link
-              to="/login"
-              className="rounded-3xl bg-secundary-200 px-6 py-3 text-sm font-medium text-white shadow hover:bg-blue-400 active:bg-blue-500"
-            >
-              Criar conta
-            </Link>
-          </div>
+              <Link
+                to="/login"
+                className="rounded-3xl px-6 py-3 text-sm font-medium text-secundary-300"
+              >
+                Entrar
+              </Link>
+              <Link
+                to="/login"
+                className="rounded-3xl bg-secundary-200 px-6 py-3 text-sm font-medium text-white shadow hover:bg-blue-400 active:bg-blue-500"
+              >
+                Criar conta
+              </Link>
+            </div>
+          )}
         </div>
       </div>
 

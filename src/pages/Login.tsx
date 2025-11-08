@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Login() {
   return (
-    <section className="bg-secundary-100 py-20 dark:bg-dark lg:py-[120px]">
+    <section className="w-full bg-secundary-100 py-20 dark:bg-dark lg:py-[120px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
