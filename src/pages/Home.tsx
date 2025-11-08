@@ -1,5 +1,11 @@
 import Button from "../components/Button.tsx";
 import CardServico from "../components/CardServico.tsx";
+import Presentes from "/img/presentes_v2.png";
+import Celular from "/img/celular.png";
+import Dashboard from "/img/dashboard.png";
+import Search from "/img/search.png";
+
+
 
 function Home() {
   return (
@@ -22,7 +28,7 @@ function Home() {
             </div>
             <div>
               <img
-                src="img/presentes_v2.png"
+                src={Presentes}
                 alt="Pricing Illustration"
                 className="w-6/7 lg:w-full max-w-lg mx-auto"
               />
@@ -49,7 +55,7 @@ function Home() {
           </p>
           <div className="flex flex-col gap-10 py-10 lg:py-24">
             <CardServico
-              imagemUrl="img/celular.png"
+              imagemUrl={Celular}
               imagemAlt="Celular"
               titulo="Pagamentos de ate 12x"
               descricao="Facilite para o seu convidado e dê opções variadas de
@@ -58,7 +64,7 @@ function Home() {
               invertido={false}
             />
             <CardServico
-              imagemUrl="img/dashboard.png"
+              imagemUrl={Dashboard}
               imagemAlt="Dashboard"
               titulo="Painel do Evento"
               descricao="Centralize todas as informações do seu evento em um só lugar. Acompanhe facilmente os custos, controle a lista de convidados e visualize os presentes selecionados — tudo de forma prática e intuitiva."
@@ -66,7 +72,7 @@ function Home() {
               invertido={true}
             />
             <CardServico
-              imagemUrl="img/search.png"
+              imagemUrl={Search}
               imagemAlt="search"
               titulo="Listas Personalizadas"
               descricao="Monte sua lista de presentes do jeito que desejar: divida o valor de cada presente entre vários convidados, adicione links diretos para facilitar a escolha e aproveite recursos exclusivos para tornar sua experiência única."

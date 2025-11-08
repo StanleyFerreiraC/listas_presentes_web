@@ -47,12 +47,12 @@ export default function Navbar() {
           </div> */}
           <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start p-1 sm:p-0">
             <div className="flex shrink-0 items-center">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-xl font-bold text-secundary-300 sm:text-2xl"
               >
                 Listou
-              </a>
+              </Link>
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
