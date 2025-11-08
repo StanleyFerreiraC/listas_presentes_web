@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   return (
@@ -53,6 +55,12 @@ function Login() {
                   />
                 </div>
               </form>
+
+              {/* Botão de Mock para Login */}
+              <div className="my-4">
+                <MockLoginButton />
+              </div>
+
               <p className="mb-6 text-base text-secondary-color">
                 Connect With
               </p>
@@ -134,3 +142,20 @@ function Login() {
 }
 
 export default Login;
+
+// Componente auxiliar para não poluir o principal
+function MockLoginButton() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleMockLogin = () => {
+    login(); // Chama a função de login do nosso contexto
+    navigate("/dashboard"); // Redireciona para o dashboard após o login
+  };
+
+  return (
+    <button onClick={handleMockLogin} className="w-full cursor-pointer rounded-md bg-green-500 px-5 py-3 text-base font-medium text-white transition hover:bg-opacity-90">
+      (Mock) Entrar como Teste
+    </button>
+  );
+}

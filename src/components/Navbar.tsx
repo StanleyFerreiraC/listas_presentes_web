@@ -5,6 +5,7 @@ import {
 } from "@headlessui/react";
 
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const navigation = [
   { name: "Dashboard", href: "#", current: true },
@@ -19,8 +20,9 @@ function classNames(...classes: (string | boolean | undefined)[]): string {
 
 export default function Navbar() {
   const location = useLocation();
+  const { isAuthenticated, logout } = useAuth(); // Usando o hook global
   const isLoginPage = location.pathname === "/login";
-  const isAuthenticated = location.pathname === "/dashboard";
+  const isDashboardPage = location.pathname === "/dashboard";
 
   return (
     <Disclosure
@@ -81,7 +83,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          {!isAuthenticated && (
+          {!isAuthenticated ? (
             <div
               className={classNames(
                 "absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ",
@@ -100,6 +102,16 @@ export default function Navbar() {
               >
                 Criar conta
               </Link>
+            </div>
+          ) : (
+            // Botão de Logout quando autenticado
+            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <button
+                onClick={logout}
+                className="rounded-3xl bg-red-500 px-6 py-3 text-sm font-medium text-white shadow hover:bg-red-600 active:bg-red-700"
+              >
+                Sair
+              </button>
             </div>
           )}
         </div>
