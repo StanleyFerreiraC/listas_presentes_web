@@ -19,7 +19,7 @@ function CardServico({
 }: CardServicoProps) {
   return (
     <motion.div
-      className={`w-full flex ${
+      className={`flex ${
         invertido ? "justify-end" : "justify-start"
       } overflow-x-hidden`}
       initial={{ opacity: 0, x: invertido ? 100 : -100 }}
@@ -27,7 +27,7 @@ function CardServico({
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <article className="w-full min-h-[565px] md:min-h-[342px] lg:w-4/6 lg:h-[445px] bg-secundary-200 rounded-2xl overflow-hidden">
+      <article className="w-full min-h-[565px] md:min-h-[342px] lg:w-5/6 lg:h-[445px] bg-secundary-200 rounded-2xl overflow-hidden">
         <div
           className={`flex px-7 lg:px-12 justify-center items-center lg:gap-10 py-10 lg:py-0 lg:h-full flex-col ${
             invertido ? "md:flex-row-reverse" : "md:flex-row"
