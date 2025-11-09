@@ -1,6 +1,16 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Login() {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [isLogin, setIsLogin] = useState<boolean>(true);
+
+  useEffect(() => {
+    console.log("Email atualizado:", email);
+    console.log("Password atualizado:", password);
+  }, [email, password]); // dispara sempre que 'email' mudar
+
   return (
     <section className="bg-secundary-100 py-20 dark:bg-dark lg:py-[120px]">
       <div className="container mx-auto">
@@ -23,6 +33,8 @@ function Login() {
                       id="Email"
                       placeholder=""
                       className="peer mt-0.5 p-3 w-full rounded border-gray-400 shadow-sm sm:text-sm"
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
                     />
 
                     <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
@@ -34,10 +46,12 @@ function Login() {
                 <div>
                   <label htmlFor="Password" className="relative">
                     <input
-                      type="email"
+                      type="password"
                       id="Password"
                       placeholder=""
                       className="peer mt-0.5 p-3 w-full rounded border-gray-500 shadow-sm sm:text-sm"
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
                     />
 
                     <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
@@ -45,6 +59,22 @@ function Login() {
                     </span>
                   </label>
                 </div>
+                {!isLogin && (<div>
+                  <label htmlFor="Password" className="relative">
+                    <input
+                      type="password"
+                      id="Password"
+                      placeholder=""
+                      className="peer mt-0.5 p-3 w-full rounded border-gray-500 shadow-sm sm:text-sm"
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
+                    />
+
+                    <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
+                      Confirm Password
+                    </span>
+                  </label>
+                </div>)}
                 <div className="mb-10">
                   <input
                     type="submit"
@@ -123,7 +153,7 @@ function Login() {
               </a>
               <p className="text-base text-body-color dark:text-dark-6">
                 <span className="pr-0.5">Not a member yet?</span>
-                <Link to="/SingUp">"Sign Up"</Link>
+                <a onClick={(e)=>setIsLogin(!isLogin)}>"Sign Up"</a>
               </p>
             </div>
           </div>
