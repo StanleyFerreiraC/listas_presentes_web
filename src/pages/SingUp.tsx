@@ -2,7 +2,7 @@ import Button from "../components/Button";
 
 function Login() {
   return (
-    <section className="bg-gray-1 py-20 dark:bg-dark lg:py-[120px]">
+    <section className="w-full bg-gray-1 py-20 dark:bg-dark lg:py-[120px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">

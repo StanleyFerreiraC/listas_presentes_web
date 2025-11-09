@@ -9,7 +9,7 @@ import Search from "/img/search.png";
 
 function Home() {
   return (
-    <main>
+    <div className="w-full">
       <section className="w-full bg-primary-100">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
           <div className="flex mx-auto  flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center lg:justify-between">
@@ -23,7 +23,7 @@ function Home() {
                 ainda melhor.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
-                <Button text="Ver exemplo" href="#" style={1} />
+                <Button text="Ver exemplo" href="/dashboard" style={1} />
               </div>
             </div>
             <div>
@@ -93,7 +93,7 @@ function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

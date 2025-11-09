@@ -8,11 +8,15 @@ function Footer() {
 
     const location = useLocation();
     const isLoginPage = location.pathname === "/login";
+    const isAuthenticated = location.pathname === "/dashboard";
+
 
     return (
         <footer
         className={`w-full ${
-            isLoginPage ? "bg-secundary-100" : "bg-primary-100"
+            isLoginPage ? "bg-secundary-100" : isAuthenticated
+          ? "bg-primary-300"
+          : "bg-primary-100"
         } `}
         >
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">

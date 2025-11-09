@@ -6,7 +6,7 @@ function Layout() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex flex-grow">
         <Outlet />
       </main>
       <Footer />
@@ -15,4 +15,3 @@ function Layout() {
 }
 
 export default Layout;
-
