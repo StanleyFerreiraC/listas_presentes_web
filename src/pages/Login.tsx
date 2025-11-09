@@ -1,64 +1,117 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Input from "../components/Input";
+import { useState } from "react";
 
 function Login() {
+  // Estado para controlar qual formulário é exibido (Login ou Cadastro)
+  const [isLogin, setIsLogin] = useState(false);
+
+  // Estado unificado para os dados do formulário
+  const [formData, setFormData] = useState({
+    nome: "",
+    sobrenome: "",
+    email: "",
+    senha: "",
+    confirmarSenha: "",
+  });
+
+  // Função para atualizar o estado quando um input muda
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  console.log(formData);
+
+  const login = [
+    {
+      name: "email",
+      label: "Email",
+      placeholder: "Digite seu email",
+      type: "email",
+    },
+    {
+      name: "senha",
+      label: "Senha",
+      placeholder: "Digite sua senha",
+      type: "password",
+    },
+  ];
+
+  const SingUp = [
+    {
+      name: "nome",
+      label: "Nome",
+      type: "text",
+    },
+    {
+      name: "sobrenome",
+      label: "Sobrenome",
+      placeholder: "",
+      type: "text",
+    },
+    {
+      name: "email",
+      label: "Email",
+      placeholder: "",
+      type: "email",
+    },
+    {
+      name: "senha",
+      label: "Senha",
+      placeholder: "",
+      type: "password",
+    },
+    {
+      name: "confirmarSenha",
+      label: "Confirmar Senha",
+      placeholder: "Confirme sua senha",
+      type: "password",
+    },
+  ];
+
   return (
     <section className="w-full bg-secundary-100 py-20 dark:bg-dark lg:py-[120px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
-            <div className="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white shadow-md shadow-gray-400 px-10 py-16 text-center dark:bg-dark-2 sm:px-12 md:px-[60px]">
+            <div className="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white shadow-md shadow-gray-400 px-10 py-16 dark:bg-dark-2 sm:px-12 md:px-[60px]">
               <div className="mb-10 text-center md:mb-16">
-                <a href="/#" className="mx-auto inline-block max-w-[160px]">
-                  <img
-                    src="https://cdn.tailgrids.com/assets/images/logo/logo-primary.svg"
-                    alt="logo"
-                  />
-                </a>
+                <h1 className="text-3xl font-bold text-secundary-300">
+                  {isLogin ? "Entrar" : "Criar Conta"}
+                </h1>
               </div>
               <form className="space-y-4">
-                <div>
-                  <label htmlFor="Email" className="relative ">
-                    <input
-                      type="email"
-                      id="Email"
-                      placeholder=""
-                      className="peer mt-0.5 p-3 w-full rounded border-gray-400 shadow-sm sm:text-sm"
+                
+                {(isLogin ? login : SingUp).map((inputProps) => (
+                  <div key={inputProps.label}>
+                    <Input
+                      label={inputProps.label}
+                      name={inputProps.name}
+                      type={inputProps.type}
+                      placeholder={inputProps.placeholder}
+                      value={formData[inputProps.name as keyof typeof formData]}
+                      onChange={handleChange}
                     />
+                  </div>
+                ))}
 
-                    <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
-                      Email
-                    </span>
-                  </label>
-                </div>
-
-                <div>
-                  <label htmlFor="Password" className="relative">
-                    <input
-                      type="email"
-                      id="Password"
-                      placeholder=""
-                      className="peer mt-0.5 p-3 w-full rounded border-gray-500 shadow-sm sm:text-sm"
-                    />
-
-                    <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
-                      Password
-                    </span>
-                  </label>
-                </div>
-                <div className="mb-10">
-                  <input
-                    type="submit"
-                    value="Sign In"
-                    className="w-full cursor-pointer rounded-md border border-primary bg-primary px-5 py-3 text-base font-medium text-white transition hover:bg-opacity-90"
-                  />
-                </div>
               </form>
 
               {/* Botão de Mock para Login */}
               <div className="my-4">
-                <MockLoginButton />
+                {isLogin ? (
+                  <MockLoginButton />
+                ) : (
+                  <button className="w-full cursor-pointer rounded-md bg-secundary-200 px-5 py-3 text-base font-medium text-white transition hover:bg-opacity-90">
+                    Criar Conta
+                  </button>
+                )}
               </div>
 
               <p className="mb-6 text-base text-secondary-color">
@@ -130,8 +183,15 @@ function Login() {
                 Forget Password?
               </a>
               <p className="text-base text-body-color dark:text-dark-6">
-                <span className="pr-0.5">Not a member yet?</span>
-                <Link to="/SingUp">"Sign Up"</Link>
+                <span className="pr-0.5">
+                  {isLogin ? "Não tem uma conta?" : "Já tem uma conta?"}
+                </span>
+                <button
+                  onClick={() => setIsLogin(!isLogin)}
+                  className="text-primary hover:underline"
+                >
+                  {isLogin ? "Crie uma" : "Faça Login"}
+                </button>
               </p>
             </div>
           </div>
@@ -154,7 +214,10 @@ function MockLoginButton() {
   };
 
   return (
-    <button onClick={handleMockLogin} className="w-full cursor-pointer rounded-md bg-green-500 px-5 py-3 text-base font-medium text-white transition hover:bg-opacity-90">
+    <button
+      onClick={handleMockLogin}
+      className="w-full cursor-pointer rounded-md bg-green-500 px-5 py-3 text-base font-medium text-white transition hover:bg-opacity-90"
+    >
       (Mock) Entrar como Teste
     </button>
   );

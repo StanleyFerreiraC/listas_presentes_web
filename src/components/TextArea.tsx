@@ -1,35 +1,21 @@
-type InputProps = {
+type TextAreaProps = {
   label: string;
-  name?: string;
   placeholder?: string;
   type?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  rows?: number;
 };
 
-function Input({
-  label,
-  name,
-  placeholder = "",
-  type = "text",
-  value,
-  onChange,
-}: InputProps) {
+export function TextArea({ label, placeholder = "", rows = 1 }: TextAreaProps) {
   return (
     <div>
       <label className="mb-[5px] block text-base font-medium text-secundary-300">
         {label}
       </label>
-      <input
-        name={name}
-        type={type}
+      <textarea
+        rows={rows}
         placeholder={placeholder}
-        value={value}
-        onChange={onChange}
         className="w-full bg-transparent rounded-md border border-gray-200 py-[10px] px-5 text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2"
       />
     </div>
   );
 }
-
-export default Input;
