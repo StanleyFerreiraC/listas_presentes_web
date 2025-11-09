@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Input from "../components/Input";
@@ -87,7 +86,6 @@ function Login() {
                 </h1>
               </div>
               <form className="space-y-4">
-                
                 {(isLogin ? login : SingUp).map((inputProps) => (
                   <div key={inputProps.label}>
                     <Input
@@ -100,7 +98,6 @@ function Login() {
                     />
                   </div>
                 ))}
-
               </form>
 
               {/* Botão de Mock para Login */}
