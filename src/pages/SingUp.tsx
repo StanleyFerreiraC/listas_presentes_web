@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import Input from "../components/Input";
 
 function Login() {
   return (
@@ -17,33 +18,11 @@ function Login() {
               </div>
               <form className="space-y-4">
                 <div>
-                  <label htmlFor="Name" className="relative ">
-                    <input
-                      type="name"
-                      id="Name"
-                      placeholder=""
-                      className="peer mt-0.5 p-3 w-full rounded border-gray-400 shadow-sm sm:text-sm"
-                    />
-
-                    <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
-                      *Nome completo
-                    </span>
-                  </label>
+                  <Input type="text" placeholder="" label="Nome completo" />
                 </div>
 
                 <div>
-                  <label htmlFor="Email" className="relative">
-                    <input
-                      type="email"
-                      id="Email"
-                      placeholder=""
-                      className="peer mt-0.5 p-3 w-full rounded border-gray-500 shadow-sm sm:text-sm"
-                    />
-
-                    <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
-                      *Email
-                    </span>
-                  </label>
+                  <Input type="email" placeholder="" label="Email" />
                 </div>
 
                 <div>
@@ -62,18 +41,7 @@ function Login() {
                 </div>
 
                 <div>
-                  <label htmlFor="Password" className="relative">
-                    <input
-                      type="passord"
-                      id="Password"
-                      placeholder=""
-                      className="peer mt-0.5 p-3 w-full rounded border-gray-500 shadow-sm sm:text-sm"
-                    />
-
-                    <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
-                      *Senha
-                    </span>
-                  </label>
+                  <Input type="password" placeholder="" label="Senha" />
                 </div>
 
                 <div className="mb-10">
